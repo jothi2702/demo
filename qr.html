@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>Socket Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"
+        integrity="sha256-Dul4c09cdrWKXVtallPxF558lwxMwCC8dXJdZ0PVW54=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var socket = io.connect("https://demo-vbi.herokuapp.com");
+            socket.on('postMessageToQR', function (data) {
+                console.log(data);
+                if (window && window.top && window.top.postMessage)
+                    window.top.postMessage(data, "https://visualbisolutions.us2.sapbusinessobjects.cloud");
+            });
+
+            var token = '12345';
+            var remotePageUrl = "https://demo-vbi.herokuapp.com/?token=" + token;
+            var qrcode = new QRCode("qrcode");
+            qrcode.makeCode(remotePageUrl);
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="qrcode"></div>
+</body>
+
+</html>
