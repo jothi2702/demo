@@ -11,28 +11,8 @@
         function filter() {
             var region = $("#region").val();
             socket.emit('postMessage', "filter:" + region);
-            console.log('postMessage', "filter:" + region);
         }
 
-        function ask() {
-            var query = $("#query").val();
-            socket.emit('postMessage', "ask:" + query);
-            console.log('postMessage', "ask:" + query);
-        }
-
-        function tabchange(text) {
-            document.getElementsByClassName('formcontent')[0].style.display = 'none'
-            document.getElementsByClassName('askcontent')[0].style.display = 'none'
-            if (text == 'filter') {
-                document.getElementsByClassName('formcontent')[0].style.display = 'block'
-            } else {
-                document.getElementsByClassName('askcontent')[0].style.display = 'block'
-            }
-        }
-
-        function bodyOnloadHandler() {
-            tabchange('filter')
-        }
 
     </script>
     <style>
@@ -93,23 +73,12 @@
     <div class="container">
         <div class="navBar">
             <div class="imgcontainer">
-                <img src="https://visualbi.com/wp-content/uploads/visualbi-logo-175-60.png"
+                <img src="http://www.annualreports.com/HostedData/CompanyLogos/TSX_PD.UN.png"
                     class="icon" alt="Responsive image">
             </div>
         </div>
         <div class="mainContent">
-            <div class="tabcontent">
-                <div class="tabtext filter" onClick="tabchange('filter')">
-                    <h3>
-                        Filter
-                    </h3>
-                </div>
-                <div class="tabtext ask" onClick="tabchange('ask')">
-                    <h3>
-                        Ask
-                    </h3>
-                </div>
-            </div>
+      
             <div class="formcontent">
                 <div class="form-group">
                     <h4>Enter Region</h4>
