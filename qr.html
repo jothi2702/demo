@@ -8,15 +8,15 @@
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script>
         $(document).ready(function () {
-            var socket = io.connect("https://demo-vbi.herokuapp.com");
+            var socket = io.connect("https://smartappdemo.herokuapp.com");
             socket.on('postMessageToQR', function (data) {
                 console.log(data);
                 if (window && window.top && window.top.postMessage)
-                    window.top.postMessage(data, "https://visualbisolutions.us2.sapbusinessobjects.cloud");
+                    window.top.postMessage(data, "https://precision-drilling.us10.sapanalytics.cloud");
             });
 
             var token = '12345';
-            var remotePageUrl = "https://demo-vbi.herokuapp.com/?token=" + token;
+            var remotePageUrl = "https://smartappdemo.herokuapp.com/?token=" + token;
             var qrcode = new QRCode("qrcode");
             qrcode.makeCode(remotePageUrl);
         });
