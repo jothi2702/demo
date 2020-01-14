@@ -12,6 +12,10 @@
             var region = $("#region").val();
             socket.emit('postMessage', "filter:" + region);
         }
+        function ask() {
+            var insight = $("#query").val();
+            socket.emit('postMessage', "insight:" + insight);
+        }
 
 
     </script>
